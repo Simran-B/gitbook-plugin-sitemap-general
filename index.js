@@ -1,5 +1,4 @@
-var fs = require('fs');
-var path = require('path');
+/*jslint node*/
 var url = require('url');
 var sm = require('sitemap');
 
@@ -7,12 +6,16 @@ var urls = [];
 
 module.exports = {
     hooks: {
-        // Index page
-        "page": function(page) {
-            if (this.output.name != 'website') return page;
+        "page": function (page) {
+            'use strict';
+            if (this.output.name !== 'website') {
+                return page;
+            }
 
-            var lang = this.isLanguageBook()? this.language : '';
-            if (lang) lang = lang + '/';
+            var lang = this.isLanguageBook() ? this.language : '';
+            if (lang) {
+                lang = lang + '/';
+            }
 
             urls.push({
                 url: this.output.toURL(lang + page.path)
@@ -21,13 +24,17 @@ module.exports = {
             return page;
         },
 
-        // Write sitemap.xml
-        "finish": function() {
-            var sitemap = sm.createSitemap({
-                cacheTime: 600000,
-                hostname: url.resolve(this.config.get('pluginsConfig.sitemap.hostname'), '/'),
-                urls: urls
-            });
+        "finish": function () {
+            'use strict';
+            var prefix = this.config.get('pluginsConfig.sitemap-general.prefix'),
+                sitemap = sm.createSitemap({
+                    cacheTime: 600000,
+                    urls: urls.map(function (obj) {
+                        return {
+                            url: url.resolve(prefix, obj.url)
+                        };
+                    })
+                });
 
             var xml = sitemap.toString();
 
