@@ -15,7 +15,7 @@ Add it to your `book.json` with a basic configuration:
     "plugins": ["sitemap-general"],
     "pluginsConfig": {
         "sitemap-general": {
-            "prefix": "https://cyberzhg.gitbooks.io/clrs_solution/content/"
+            "prefix": "https://cyberzhg.gitbooks.io/clrs/content/"
         }
     }
 }
