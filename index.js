@@ -12,7 +12,7 @@ module.exports = {
                 return page;
             }
 
-            var lang = this.isLanguageBook() ? this.language : '';
+            var lang = this.isLanguageBook() ? this.config.values.language : '';
             if (lang) {
                 lang = lang + '/';
             }
