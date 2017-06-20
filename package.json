@@ -2,22 +2,22 @@
     "name": "gitbook-plugin-sitemap-general",
     "description": "Generate a sitemap for a GitBook with a prefix.",
     "main": "index.js",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "engines": {
         "gitbook": ">=3.0.0-pre.0"
     },
-    "homepage": "https://github.com/CyberZHG/gitbook-plugin-sitemap-general",
+    "homepage": "https://github.com/Simran-B/gitbook-plugin-sitemap-general",
     "keywords": ["seo"],
     "repository": {
         "type": "git",
-        "url": "https://github.com/CyberZHG/gitbook-plugin-sitemap-general.git"
+        "url": "https://github.com/Simran-B/gitbook-plugin-sitemap-general.git"
     },
     "dependencies": {
         "sitemap": "1.5.0"
     },
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/CyberZHG/gitbook-plugin-sitemap-general/issues"
+        "url": "https://github.com/Simran-B/gitbook-plugin-sitemap-general/issues"
     },
     "gitbook": {
         "properties": {
@@ -25,6 +25,14 @@
                 "type": "string",
                 "required": true,
                 "title": "Prefix of the root url"
+            },
+            "changefreq": {
+                "type": "string",
+                "title": "Change frequency for all sitemap entries (daily, weekly, monthly)"
+            },
+            "priority": {
+                "type": "number",
+                "title": "Priority for all sitemap entries (0.0 - 1.0)"
             }
         }
     }
