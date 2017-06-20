@@ -26,19 +26,20 @@ module.exports = {
 
         "finish": function () {
             'use strict';
-            var prefix = this.config.get('pluginsConfig.sitemap-general.prefix'),
-            var changefreq = this.config.get('pluginsConfig.sitemap-general.changefreq'),
-            var priority = this.config.get('pluginsConfig.sitemap-general.priority'),
-                sitemap = sm.createSitemap({
-                    cacheTime: 600000,
-                    urls: urls.map(function (obj) {
-                        return {
-                            url: url.resolve(prefix, obj.url),
-                            changefreq: changefreq,
-                            priority: priority
-                        };
-                    })
-                });
+            var prefix = this.config.get('pluginsConfig.sitemap-general.prefix');
+            var changefreq = this.config.get('pluginsConfig.sitemap-general.changefreq');
+            var priority = this.config.get('pluginsConfig.sitemap-general.priority');
+
+            sitemap = sm.createSitemap({
+                cacheTime: 600000,
+                urls: urls.map(function (obj) {
+                    return {
+                        url: url.resolve(prefix, obj.url),
+                        changefreq: changefreq,
+                        priority: priority
+                    };
+                })
+            });
 
             var xml = sitemap.toString();
 
