@@ -30,7 +30,7 @@ module.exports = {
             var changefreq = this.config.get('pluginsConfig.sitemap-general.changefreq');
             var priority = this.config.get('pluginsConfig.sitemap-general.priority');
 
-            sitemap = sm.createSitemap({
+            var sitemap = sm.createSitemap({
                 cacheTime: 600000,
                 urls: urls.map(function (obj) {
                     return {
